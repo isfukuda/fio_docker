@@ -1,0 +1,19 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    components.gke.io/component-name: pdcsi
+    components.gke.io/component-version: 0.10.6
+    components.gke.io/layer: addon
+  creationTimestamp: "2021-12-21T07:55:04Z"
+  labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
+    k8s-app: gcp-compute-persistent-disk-csi-driver
+  name: premium-rwo
+  resourceVersion: "365"
+  uid: 53b4c793-a7b5-4f5d-b500-14661d80b7fa
+parameters:
+  type: pd-ssd
+provisioner: pd.csi.storage.gke.io
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer

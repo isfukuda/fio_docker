@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fio-docker-stdrwo
+spec:
+  containers:
+   - name: fio-docker-stdrwo
+     image: asia.gcr.io/mystical-ace-168107/fio-docker:latest
+     volumeMounts:
+       - mountPath: /data
+         name: pvc-stdrwo
+  volumes:
+   - name: pvc-stdrwo
+     persistentVolumeClaim:
+       claimName: std-rwo-pvc
+       readOnly: false
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fio-docker-pre
+spec:
+  containers:
+   - name: fio-docker-pre
+     image: asia.gcr.io/mystical-ace-168107/fio-docker:latest
+     volumeMounts:
+       - mountPath: /data
+         name: pvc-pre
+  volumes:
+   - name: pvc-pre
+     persistentVolumeClaim:
+       claimName: pre-rwo-pvc
+       readOnly: false
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fio-docker-std
+spec:
+  containers:
+   - name: fio-docker-std
+     image: asia.gcr.io/mystical-ace-168107/fio-docker:latest
+     volumeMounts:
+       - mountPath: /data
+         name: pvc-std
+  volumes:
+   - name: pvc-std
+     persistentVolumeClaim:
+       claimName: std-pvc
+       readOnly: false

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 DBENCH_MOUNTPOINT="${DBENCH_MOUNTPOINT:-.}"
 FIO_SIZE="${FIO_SIZE:-100M}"
